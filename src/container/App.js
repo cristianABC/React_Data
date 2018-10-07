@@ -6,6 +6,17 @@ import Cockpit from '../components/Cockpit/Cockpit';
 
 
 class App extends Component {
+constructor(props){
+  super(props);
+  console.log("constructor");
+}
+componentWillMount(){
+  console.log("Component Will Mount");
+}
+componentDidMount(){
+  console.log("Component did mount");
+}
+
   state = {
     persons:[
       {id:"1", name:"Carlos",age:12},
@@ -43,7 +54,7 @@ class App extends Component {
     this.setState({persons:persons});
   }
   render() {
-    let persons = null;
+        let persons = null;
 
 
 
