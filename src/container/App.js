@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import classes from './App.css';
-import Persons from '../components/Persons/Persons';
 
+import Persons from '../components/Persons/Persons';
+import Cockpit from '../components/Cockpit/Cockpit';
 
 
 class App extends Component {
@@ -43,7 +44,7 @@ class App extends Component {
   }
   render() {
     let persons = null;
-    let buttonClass= '';
+
 
 
     if(this.state.showPersons){
@@ -54,26 +55,19 @@ class App extends Component {
          changed={this.cambiarNombre}/>
          </div>);
 
-          buttonClass= classes.Red;
     
     }
 
-    const Aclasses = [];
-    if(this.state.persons.length <= 2){
-      Aclasses.push(classes.red)
-    }
-    if(this.state.persons.length <= 1){
-      Aclasses.push(classes.bold);
-    }
     return (
     
       <div className={classes.App}>
-        <p className={Aclasses.join(' ')}>
-          <button className={buttonClass} 
-          onClick={this.togglePersonHandler}>Switch name </button>
-         </p>
+            <Cockpit 
+            showPersons={this.state.showPersons}
+            persons={this.state.persons}
+            clicked={this.togglePersonHandler}/>
             {persons}
       </div>
+        
     
       
       
